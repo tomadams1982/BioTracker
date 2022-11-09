@@ -294,12 +294,12 @@ public class ParallelParticleMover implements Callable<List<Particle>> {
             if (rp.rk4==true)
             {
                 advectStep = part.rk4Step(hydroFields, meshes,
-                    tt, st, subStepDt, rp.stepsPerStep, rp.coordRef, rp.vertInterp);   
+                    tt, st, subStepDt, rp.stepsPerStep, rp.coordRef, rp.vertInterp, rp.velocityScale);   
             }
             else
             {
                 advectStep = part.eulerStep(hydroFields, meshes,
-                    tt, st, subStepDt, rp.stepsPerStep, rp.coordRef, rp.vertInterp);
+                    tt, st, subStepDt, rp.stepsPerStep, rp.coordRef, rp.vertInterp, rp.velocityScale);
             }
             //System.out.printf("ADVECT=[%.3e,%.3e]\n",advectStep[0],advectStep[1]);          
             

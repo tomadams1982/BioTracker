@@ -62,7 +62,8 @@ public class RunProperties {
             vertSwimSpeedMean, vertSwimSpeedStd,
             salinityThreshold,
             startDepth, // Particle initiation depth
-            restartParticlesCutoffDays; // when reading the specified restart particles file, cutoff in particle start date to apply (days before start date of run)
+            restartParticlesCutoffDays, // when reading the specified restart particles file, cutoff in particle start date to apply (days before start date of run)
+            velocityScale; // Numerical scaling of velocity for horizontal particle movement
   
     /**
      * 
@@ -163,6 +164,7 @@ public class RunProperties {
             System.err.println("If using vertical interpolation, must read all hydro fields; setting readHydroVelocityOnly to FALSE");
             readHydroVelocityOnly = false;
         }
+        velocityScale = Double.parseDouble(properties.getProperty("velocityScale","1"));
         
         duplicateLastDay = Boolean.parseBoolean(properties.getProperty("duplicateLastDay","false"));
         
